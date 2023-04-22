@@ -10,13 +10,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <form action="{{ route('app.contacts.update', $contact->id) }}" method="post">
+                   {{--  <form action="{{ route('admin.contacts.update', $contact->id) }}" method="post">
                     @csrf
                     @method('patch')
 
                         <input class="border" name="name" value="{{ old('name', $contact->name) }}" />
                         <button>{{ __('Submit') }}</button>
-                    </form>
+                    </form> --}}
+
+                     <x-splade-form :for="$form" />
 
                 </div>
             </div>

@@ -11,22 +11,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <p><a href="{{ route('app.contacts.create') }}">Add Contact</a> </p>
+                    <p>
+                        <Link class="text-green-500 text-lg" href="{{ route('admin.contacts.create')  }}">Add Contact</Link>
+                    </p>
 
-                    <table>
-                        <tr>
-                            <td>Name</td>
-                            <td>Action</td>
-                        </tr>
-                        @foreach($contacts as $contact)
-                            <tr>
-                                <td>{{ $contact->name }}</td>
-                                <td>
-                                    <a href="{{ route('app.contacts.edit', $contact->id) }}">Edit</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
+                    <x-splade-table :for="$contacts">
+                        @cell('action', $contact)
+                        <Link href="{{ route('admin.contacts.edit', $contact) }}" class="font-bold text-indigo-600"> Edit</Link> |
+                        <Link href="{{ route('admin.contacts.delete', $contact) }}" class="font-bold text-red-600"> Delete</Link>
+                        @endcell
+                    </x-splade-table>
 
                 </div>
             </div>

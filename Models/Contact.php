@@ -10,8 +10,8 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
-    
+    protected $guarded = [];
+
     protected static function newFactory()
     {
         return ContactFactory::new();
